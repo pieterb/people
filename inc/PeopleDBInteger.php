@@ -32,11 +32,24 @@ class PeopleDBInteger extends PeopleDBValue
 
 
 protected function validate($value) {
-  return is_null($value) ? NULL : (int)$value;
+  if (is_null($value)) return NULL;
+  if (!preg_match('/^\\s*([\\-+]?)\\s*(\\d+)\\s*$/', "$value", $matches))
+    throw PeopleException::bad_parameters($value);
+  if ($matches[1] == '+') $matches[1] = '';
+  return $matches[1] . $matches[2];
 }
 
 
-public function SQLType() { return 'i'; }
+public function value() {
+  return ((string)(int)($this->i_value) == $this->i_value) ?
+    (int)($this->i_value) : $this->i_value;
+}
+
+
+public function sql() { return $this->i_value; }
+
+
+public function SQLType() { return 's'; }
 
 
 } // end of Type

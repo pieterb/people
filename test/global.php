@@ -15,36 +15,15 @@
 
 /**
  * @package People
- * @subpackage DBValue
+ * @subpackage Tests
  * @author Pieter van Beek <pieter@djinnit.com>
  */
 
-/**
- * A boolean field in the database.
- * This Object persistence layer defines a boolean as follows in the database:
- * <pre>TINYINT NOT NULL DEFAULT 0</pre>
- * @package People
- * @subpackage DBValue
- * @author Pieter van Beek <pieter@djinnit.com>
- */
-class PeopleDBBoolean extends PeopleDBValue
-{
+require_once '../inc/People.php';
+require_once 'PHPUnit/Framework.php';
 
-
-public function sql() {
-  if (is_null($this->i_value)) return NULL;
-  return $this->i_value ? 1 : 0;
+function __autoload($classname) {
+  require_once("$classname.php");
 }
-
-
-protected function validate($value) {
-  return is_null($value) ? NULL : (bool)$value;
-}
-
-
-public function SQLType() { return 'i'; }
-
-
-} // end of Type
 
 ?>

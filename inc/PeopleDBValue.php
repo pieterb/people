@@ -81,8 +81,6 @@ public function __construct($p_value = NULL) {
 
 /** The current value of this object, as an appropriate PHP datatype. */
 public function value() { return $this->i_value; }
-/** The value of this object in the database, as an appropriate PHP datatype. */
-public function orig() { return $this->i_orig; }
 /** Resets this property to it's original (persisted) value. */
 public function reset() { return $this->i_value = $this->i_orig; }
 
