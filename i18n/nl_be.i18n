@@ -1,0 +1,1175 @@
+<?php
+
+/*·****************************************************************************
+ * Copyright © 2005-2006 by Pieter van Beek                                   *
+ * pieter@djinnit.com                                                         *
+ *                                                                            *
+ * This program may be distributed under the terms of the Q Public License as *
+ * defined  by  Trolltech AS  of Norway and appearing in the file LICENSE.QPL *
+ * included in the packaging of this file.                                    *
+ *                                                                            *
+ * This  program  is  distributed  in the  hope  that it will  be useful, but *
+ * WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY *
+ * or FITNESS FOR A PARTICULAR PURPOSE.                                       *
+ ******************************************************************************/
+
+$TRANSLATION["Dutch"] =
+             "Nederlands";
+$TRANSLATION["Flemmish"] =
+             "Vlaams";
+$TRANSLATION["French"] =
+             "Frans";
+$TRANSLATION["Walloon"] =
+             "Waals";
+$TRANSLATION["British"] =
+             "Brits";
+$TRANSLATION["American"] =
+             "Amerikaans";
+$TRANSLATION["AFGHANISTAN"] =
+             "Afghanistan";
+$TRANSLATION["ALBANIA"] =
+             "Albanië";
+$TRANSLATION["ÅLAND ISLANDS"] =
+             "Åland Eilanden";
+$TRANSLATION["ALGERIA"] =
+             "Algerije";
+$TRANSLATION["AMERICAN SAMOA"] =
+             "Amerikaans-Samoa";
+$TRANSLATION["VIRGIN ISLANDS, U.S."] =
+             "Amerikaanse Maagdeneilanden";
+$TRANSLATION["ANDORRA"] =
+             "Andorra";
+$TRANSLATION["ANGOLA"] =
+             "Angola";
+$TRANSLATION["ANGUILLA"] =
+             "Anguilla";
+$TRANSLATION["ANTARCTICA"] =
+             "Antarctica";
+$TRANSLATION["ANTIGUA AND BARBUDA"] =
+             "Antigua en Barbuda";
+$TRANSLATION["ARGENTINA"] =
+             "Argentinië";
+$TRANSLATION["ARMENIA"] =
+             "Armenië";
+$TRANSLATION["ARUBA"] =
+             "Aruba";
+$TRANSLATION["AUSTRALIA"] =
+             "Australië";
+$TRANSLATION["AZERBAIJAN"] =
+             "Azerbeidzjan";
+$TRANSLATION["BAHAMAS"] =
+             "Bahama's";
+$TRANSLATION["BAHRAIN"] =
+             "Bahrein";
+$TRANSLATION["BANGLADESH"] =
+             "Bangladesh";
+$TRANSLATION["BARBADOS"] =
+             "Barbados";
+$TRANSLATION["BELGIUM"] =
+             "België";
+$TRANSLATION["BELIZE"] =
+             "Belize";
+$TRANSLATION["BENIN"] =
+             "Benin";
+$TRANSLATION["BERMUDA"] =
+             "Bermuda";
+$TRANSLATION["BHUTAN"] =
+             "Bhutan";
+$TRANSLATION["BOLIVIA"] =
+             "Bolivia";
+$TRANSLATION["BOSNIA AND HERZEGOVINA"] =
+             "Bosnië-Herzegovina";
+$TRANSLATION["BOTSWANA"] =
+             "Botswana";
+$TRANSLATION["BOUVET ISLAND"] =
+             "Bouvet";
+$TRANSLATION["BRAZIL"] =
+             "Brazilië";
+$TRANSLATION["BRITISH INDIAN OCEAN TERRITORY"] =
+             "Brits Indische Oceaan Territorium";
+$TRANSLATION["VIRGIN ISLANDS, BRITISH"] =
+             "Britse Maagdeneilanden";
+$TRANSLATION["BRUNEI DARUSSALAM"] =
+             "Brunei";
+$TRANSLATION["BULGARIA"] =
+             "Bulgarije";
+$TRANSLATION["BURKINA FASO"] =
+             "Burkina Faso";
+$TRANSLATION["BURUNDI"] =
+             "Burundi";
+$TRANSLATION["CAMBODIA"] =
+             "Cambodja";
+$TRANSLATION["CANADA"] =
+             "Canada";
+$TRANSLATION["CAYMAN ISLANDS"] =
+             "Caymaneilanden";
+$TRANSLATION["CENTRAL AFRICAN REPUBLIC"] =
+             "Centraal-Afrikaanse Republiek";
+$TRANSLATION["CHILE"] =
+             "Chili";
+$TRANSLATION["CHINA"] =
+             "China";
+$TRANSLATION["CHRISTMAS ISLAND"] =
+             "Christmaseiland";
+$TRANSLATION["COCOS (KEELING) ISLANDS"] =
+             "Cocoseilanden";
+$TRANSLATION["COLOMBIA"] =
+             "Colombia";
+$TRANSLATION["COMOROS"] =
+             "Comoren";
+$TRANSLATION["CONGO"] =
+             "Republiek Congo";
+$TRANSLATION["CONGO, THE DEM. REP. OF THE"] =
+             "Democratische Republiek Congo";
+$TRANSLATION["COOK ISLANDS"] =
+             "Cookeilanden";
+$TRANSLATION["COSTA RICA"] =
+             "Costa Rica";
+$TRANSLATION["CUBA"] =
+             "Cuba";
+$TRANSLATION["CYPRUS"] =
+             "Cyprus";
+$TRANSLATION["DENMARK"] =
+             "Denemarken";
+$TRANSLATION["DJIBOUTI"] =
+             "Djibouti";
+$TRANSLATION["DOMINICA"] =
+             "Dominica";
+$TRANSLATION["DOMINICAN REPUBLIC"] =
+             "Dominicaanse Republiek";
+$TRANSLATION["GERMANY"] =
+             "Duitsland";
+$TRANSLATION["ECUADOR"] =
+             "Ecuador";
+$TRANSLATION["EGYPT"] =
+             "Egypte";
+$TRANSLATION["EL SALVADOR"] =
+             "El Salvador";
+$TRANSLATION["EQUATORIAL GUINEA"] =
+             "Equatoriaal-Guinea";
+$TRANSLATION["ERITREA"] =
+             "Eritrea";
+$TRANSLATION["ESTONIA"] =
+             "Estland";
+$TRANSLATION["ETHIOPIA"] =
+             "Ethiopië";
+$TRANSLATION["FAROE ISLANDS"] =
+             "Faeröer";
+$TRANSLATION["FALKLAND ISLANDS (MALVINAS)"] =
+             "Falklandeilanden";
+$TRANSLATION["FIJI"] =
+             "Fiji";
+$TRANSLATION["PHILIPPINES"] =
+             "Filipijnen";
+$TRANSLATION["FINLAND"] =
+             "Finland";
+$TRANSLATION["FRANCE"] =
+             "Frankrijk";
+$TRANSLATION["FRENCH GUIANA"] =
+             "Frans-Guyana";
+$TRANSLATION["FRENCH POLYNESIA"] =
+             "Frans-Polynesië";
+$TRANSLATION["FRENCH SOUTHERN TERRITORIES"] =
+             "Franse Zuidelijke Gebieden";
+$TRANSLATION["GABON"] =
+             "Gabon";
+$TRANSLATION["GAMBIA"] =
+             "Gambia";
+$TRANSLATION["GEORGIA"] =
+             "Georgië";
+$TRANSLATION["GHANA"] =
+             "Ghana";
+$TRANSLATION["GIBRALTAR"] =
+             "Gibraltar";
+$TRANSLATION["GRENADA"] =
+             "Grenada";
+$TRANSLATION["GREECE"] =
+             "Griekenland";
+$TRANSLATION["GREENLAND"] =
+             "Groenland";
+$TRANSLATION["GUADELOUPE"] =
+             "Guadeloupe";
+$TRANSLATION["GUAM"] =
+             "Guam";
+$TRANSLATION["GUATEMALA"] =
+             "Guatemala";
+$TRANSLATION["GUINEA"] =
+             "Guinee";
+$TRANSLATION["GUINEA-BISSAU"] =
+             "Guinee-Bissau";
+$TRANSLATION["GUYANA"] =
+             "Guyana";
+$TRANSLATION["HAITI"] =
+             "Haïti";
+$TRANSLATION["HEARD ISLAND AND MCDONALD ISLANDS"] =
+             "Heard- en McDonaldeilanden";
+$TRANSLATION["HONDURAS"] =
+             "Honduras";
+$TRANSLATION["HUNGARY"] =
+             "Hongarije";
+$TRANSLATION["HONG KONG"] =
+             "Hongkong";
+$TRANSLATION["IRELAND"] =
+             "Ierland";
+$TRANSLATION["ICELAND"] =
+             "IJsland";
+$TRANSLATION["INDIA"] =
+             "India";
+$TRANSLATION["INDONESIA"] =
+             "Indonesië";
+$TRANSLATION["IRAQ"] =
+             "Irak";
+$TRANSLATION["IRAN, ISLAMIC REPUBLIC OF"] =
+             "Iran";
+$TRANSLATION["ISRAEL"] =
+             "Israël";
+$TRANSLATION["ITALY"] =
+             "Italië";
+$TRANSLATION["COTE D'IVOIRE"] =
+             "Ivoorkust";
+$TRANSLATION["JAMAICA"] =
+             "Jamaica";
+$TRANSLATION["JAPAN"] =
+             "Japan";
+$TRANSLATION["YEMEN"] =
+             "Jemen";
+$TRANSLATION["JORDAN"] =
+             "Jordanië";
+$TRANSLATION["CAPE VERDE"] =
+             "Kaapverdië";
+$TRANSLATION["CAMEROON"] =
+             "Kameroen";
+$TRANSLATION["KAZAKHSTAN"] =
+             "Kazachstan";
+$TRANSLATION["KENYA"] =
+             "Kenia";
+$TRANSLATION["KYRGYZSTAN"] =
+             "Kirgizië";
+$TRANSLATION["KIRIBATI"] =
+             "Kiribati";
+$TRANSLATION["KUWAIT"] =
+             "Koeweit";
+$TRANSLATION["CROATIA"] =
+             "Kroatië";
+$TRANSLATION["LAO PEOPLE'S DEMOCRATIC REPUBLIC"] =
+             "Laos";
+$TRANSLATION["LESOTHO"] =
+             "Lesotho";
+$TRANSLATION["LATVIA"] =
+             "Letland";
+$TRANSLATION["LEBANON"] =
+             "Libanon";
+$TRANSLATION["LIBERIA"] =
+             "Liberia";
+$TRANSLATION["LIBYAN ARAB JAMAHIRIYA"] =
+             "Libië";
+$TRANSLATION["LIECHTENSTEIN"] =
+             "Liechtenstein";
+$TRANSLATION["LITHUANIA"] =
+             "Litouwen";
+$TRANSLATION["LUXEMBOURG"] =
+             "Groothertogdom Luxemburg";
+$TRANSLATION["MACAO"] =
+             "Macao";
+$TRANSLATION["MACEDONIA"] =
+             "Macedonië";
+$TRANSLATION["MADAGASCAR"] =
+             "Madagaskar";
+$TRANSLATION["MALAWI"] =
+             "Malawi";
+$TRANSLATION["MALDIVES"] =
+             "Maldiven";
+$TRANSLATION["MALAYSIA"] =
+             "Maleisië";
+$TRANSLATION["MALI"] =
+             "Mali";
+$TRANSLATION["MALTA"] =
+             "Malta";
+$TRANSLATION["MOROCCO"] =
+             "Marokko";
+$TRANSLATION["MARSHALL ISLANDS"] =
+             "Marshalleilanden";
+$TRANSLATION["MARTINIQUE"] =
+             "Martinique";
+$TRANSLATION["MAURITANIA"] =
+             "Mauritanië";
+$TRANSLATION["MAURITIUS"] =
+             "Mauritius";
+$TRANSLATION["MAYOTTE"] =
+             "Mayotte";
+$TRANSLATION["MEXICO"] =
+             "Mexico";
+$TRANSLATION["MICRONESIA, FEDERATED STATES OF"] =
+             "Micronesië";
+$TRANSLATION["MOLDOVA, REPUBLIC OF"] =
+             "Republiek Moldavië";
+$TRANSLATION["MONACO"] =
+             "Monaco";
+$TRANSLATION["MONGOLIA"] =
+             "Mongolië";
+$TRANSLATION["MONTSERRAT"] =
+             "Montserrat";
+$TRANSLATION["MOZAMBIQUE"] =
+             "Mozambique";
+$TRANSLATION["MYANMAR"] =
+             "Myanmar";
+$TRANSLATION["NAMIBIA"] =
+             "Namibië";
+$TRANSLATION["NAURU"] =
+             "Nauru";
+$TRANSLATION["NETHERLANDS"] =
+             "Nederland";
+$TRANSLATION["NETHERLANDS ANTILLES"] =
+             "Nederlandse Antillen";
+$TRANSLATION["NEPAL"] =
+             "Nepal";
+$TRANSLATION["NICARAGUA"] =
+             "Nicaragua";
+$TRANSLATION["NEW CALEDONIA"] =
+             "Nieuw-Caledonië";
+$TRANSLATION["NEW ZEALAND"] =
+             "Nieuw-Zeeland";
+$TRANSLATION["NIGER"] =
+             "Niger";
+$TRANSLATION["NIGERIA"] =
+             "Nigeria";
+$TRANSLATION["NIUE"] =
+             "Niue";
+$TRANSLATION["NORTHERN MARIANA ISLANDS"] =
+             "Noordelijke Marianen";
+$TRANSLATION["KOREA, DEM. PEOPLE'S REP. OF"] =
+             "Noord-Korea";
+$TRANSLATION["NORWAY"] =
+             "Noorwegen";
+$TRANSLATION["NORFOLK ISLAND"] =
+             "Norfolkeiland";
+$TRANSLATION["UGANDA"] =
+             "Oeganda";
+$TRANSLATION["UKRAINE"] =
+             "Oekraïne";
+$TRANSLATION["UZBEKISTAN"] =
+             "Oezbekistan";
+$TRANSLATION["OMAN"] =
+             "Oman";
+$TRANSLATION["AUSTRIA"] =
+             "Oostenrijk";
+$TRANSLATION["TIMOR-LESTE"] =
+             "Oost-Timor";
+$TRANSLATION["PAKISTAN"] =
+             "Pakistan";
+$TRANSLATION["PALAU"] =
+             "Palau";
+$TRANSLATION["PALESTINIAN TERRITORY, OCCUPIED"] =
+             "Palestina";
+$TRANSLATION["PANAMA"] =
+             "Panama";
+$TRANSLATION["PAPUA NEW GUINEA"] =
+             "Papoea-Nieuw-Guinea";
+$TRANSLATION["PARAGUAY"] =
+             "Paraguay";
+$TRANSLATION["PERU"] =
+             "Peru";
+$TRANSLATION["PITCAIRN"] =
+             "Pitcairneilanden";
+$TRANSLATION["POLAND"] =
+             "Polen";
+$TRANSLATION["PORTUGAL"] =
+             "Portugal";
+$TRANSLATION["PUERTO RICO"] =
+             "Puerto Rico";
+$TRANSLATION["QATAR"] =
+             "Qatar";
+$TRANSLATION["REUNION"] =
+             "Réunion";
+$TRANSLATION["ROMANIA"] =
+             "Roemenië";
+$TRANSLATION["RUSSIAN FEDERATION"] =
+             "Rusland";
+$TRANSLATION["RWANDA"] =
+             "Rwanda";
+$TRANSLATION["SAINT KITTS AND NEVIS"] =
+             "Saint Kitts en Nevis";
+$TRANSLATION["SAINT LUCIA"] =
+             "Saint Lucia";
+$TRANSLATION["SAINT PIERRE AND MIQUELON"] =
+             "Saint-Pierre en Miquelon";
+$TRANSLATION["SAINT VINCENT AND THE GRENADINES"] =
+             "Saint Vincent en de Grenadines";
+$TRANSLATION["SOLOMON ISLANDS"] =
+             "Salomonseilanden";
+$TRANSLATION["SAMOA"] =
+             "Samoa";
+$TRANSLATION["SAN MARINO"] =
+             "San Marino";
+$TRANSLATION["SAO TOME AND PRINCIPE"] =
+             "Sao Tomé en Principe";
+$TRANSLATION["SAUDI ARABIA"] =
+             "Saoedi-Arabië";
+$TRANSLATION["SENEGAL"] =
+             "Senegal";
+$TRANSLATION["SERBIA AND MONTENEGRO"] =
+             "Servië en Montenegro";
+$TRANSLATION["SEYCHELLES"] =
+             "Seychellen";
+$TRANSLATION["SIERRA LEONE"] =
+             "Sierra Leone";
+$TRANSLATION["SINGAPORE"] =
+             "Singapore";
+$TRANSLATION["SAINT HELENA"] =
+             "Sint-Helena";
+$TRANSLATION["SLOVENIA"] =
+             "Slovenië";
+$TRANSLATION["SLOVAKIA"] =
+             "Slowakije";
+$TRANSLATION["SOMALIA"] =
+             "Somalië";
+$TRANSLATION["SPAIN"] =
+             "Spanje";
+$TRANSLATION["SRI LANKA"] =
+             "Sri Lanka";
+$TRANSLATION["SUDAN"] =
+             "Soedan";
+$TRANSLATION["SURINAME"] =
+             "Suriname";
+$TRANSLATION["SVALBARD AND JAN MAYEN"] =
+             "Svalbard en Jan Mayen";
+$TRANSLATION["SWAZILAND"] =
+             "Swaziland";
+$TRANSLATION["SYRIAN ARAB REPUBLIC"] =
+             "Syrië";
+$TRANSLATION["TAJIKISTAN"] =
+             "Tadzjikistan";
+$TRANSLATION["TAIWAN, PROVINCE OF CHINA"] =
+             "Taiwan";
+$TRANSLATION["TANZANIA, UNITED REPUBLIC OF"] =
+             "Tanzania";
+$TRANSLATION["THAILAND"] =
+             "Thailand";
+$TRANSLATION["TOGO"] =
+             "Togo";
+$TRANSLATION["TOKELAU"] =
+             "Tokelau-eilanden";
+$TRANSLATION["TONGA"] =
+             "Tonga";
+$TRANSLATION["TRINIDAD AND TOBAGO"] =
+             "Trinidad en Tobago";
+$TRANSLATION["CHAD"] =
+             "Tsjaad";
+$TRANSLATION["CZECH REPUBLIC"] =
+             "Tsjechië";
+$TRANSLATION["TUNISIA"] =
+             "Tunesië";
+$TRANSLATION["TURKEY"] =
+             "Turkije";
+$TRANSLATION["TURKMENISTAN"] =
+             "Turkmenistan";
+$TRANSLATION["TURKS AND CAICOS ISLANDS"] =
+             "Turks- en Caicoseilanden";
+$TRANSLATION["TUVALU"] =
+             "Tuvalu";
+$TRANSLATION["UNITED STATES MINOR OUTLYING ISLANDS"] =
+             "Kleine Pacifische eilanden (VS)";
+$TRANSLATION["URUGUAY"] =
+             "Uruguay";
+$TRANSLATION["VANUATU"] =
+             "Vanuatu";
+$TRANSLATION["HOLY SEE (VATICAN CITY STATE)"] =
+             "Vaticaanstad";
+$TRANSLATION["VENEZUELA"] =
+             "Venezuela";
+$TRANSLATION["UNITED ARAB EMIRATES"] =
+             "Verenigde Arabische Emiraten";
+$TRANSLATION["UNITED KINGDOM"] =
+             "Verenigd Koninkrijk";
+$TRANSLATION["UNITED STATES"] =
+             "Verenigde Staten";
+$TRANSLATION["VIET NAM"] =
+             "Vietnam";
+$TRANSLATION["WALLIS AND FUTUNA"] =
+             "Wallis en Futuna";
+$TRANSLATION["WESTERN SAHARA"] =
+             "Westelijke Sahara";
+$TRANSLATION["BELARUS"] =
+             "Wit-Rusland";
+$TRANSLATION["ZAMBIA"] =
+             "Zambia";
+$TRANSLATION["ZIMBABWE"] =
+             "Zimbabwe";
+$TRANSLATION["SOUTH AFRICA"] =
+             "Zuid-Afrika";
+$TRANSLATION["SOUTH GEORGIA"] =
+             "Zuid-Georgië";
+$TRANSLATION["KOREA, REPUBLIC OF"] =
+             "Zuid-Korea";
+$TRANSLATION["SWEDEN"] =
+             "Zweden";
+$TRANSLATION["SWITZERLAND"] =
+             "Zwitserland";
+// Unused:
+$TRANSLATION["Person"] =
+             "Persoon";
+$TRANSLATION["User"] =
+             "Gebruiker";
+$TRANSLATION["Group"] =
+             "Groep";
+// Unused:
+$TRANSLATION["Some object"] =
+             "Een object";
+$TRANSLATION["Boolean"] =
+             "Boolean";
+$TRANSLATION["CLOB"] =
+             "CLOB";
+$TRANSLATION["Currency"] =
+             "Monetair";
+$TRANSLATION["Date"] =
+             "Datum";
+$TRANSLATION["Date & Time"] =
+             "Datum & Tijd";
+$TRANSLATION["Integer"] =
+             "Integer";
+$TRANSLATION["Object"] =
+             "Object";
+$TRANSLATION["Sex"] =
+             "Geslacht";
+$TRANSLATION["Text"] =
+             "Tekst";
+// Unused:
+$TRANSLATION["Time"] =
+             "Tijd";
+// Unused:
+$TRANSLATION["male"] =
+             "mannelijk";
+// Unused:
+$TRANSLATION["female"] =
+             "vrouwelijk";
+$TRANSLATION["Groups"] =
+             "Groepen";
+// Unused:
+$TRANSLATION["Users"] =
+             "Gebruikers";
+$TRANSLATION["Persisting %s %d failed"] =
+             "Opslaan van %s %d mislukt";
+$TRANSLATION["This is a literal string."] =
+             "Dit is een letterlijke string.";
+// Unused:
+$TRANSLATION["Bad parameters."] =
+             "Foute parameters.";
+$TRANSLATION["Required parameter \"classname\" is missing."] =
+             "Verplichte parameter \"classname\" ontbreekt.";
+$TRANSLATION["And this won't work either"] =
+             "En dit gaat ook niet werken";
+// Unused:
+$TRANSLATION["Group memberships"] =
+             "Groepslidmaatschappen";
+$TRANSLATION["Group membership"] =
+             "Groepslidmaatschap";
+// Unused:
+$TRANSLATION["Property 'object' is immutable."] =
+             "Property 'object' is onveranderlijk.";
+// Unused:
+$TRANSLATION["Some facet"] =
+             "Een Facet";
+$TRANSLATION["Anonymous users are not allowed to create objects."] =
+             "Anonieme gebruikers mogen geen objecten aanmaken.";
+// Unused:
+$TRANSLATION["Bad parameter(s)"] =
+             "Foute parameter(s)";
+// Unused:
+$TRANSLATION["%s %d has permissions %d for user %d"] =
+             "%s %d heeft permissies %d voor gebruiker %d";
+$TRANSLATION["No property named \"%s\" in %s %d."] =
+             "Geen property genaamd \"%s\" in %s %d.";
+$TRANSLATION["You don't have write permissions on %s %d."] =
+             "U heeft geen schrijfpermissies voor %s %d.";
+$TRANSLATION["Access denied, while trying to modify %s::%s on object %d."] =
+             "Toegang geweigerd bij poging om %s::%s aan te passen van object %d.";
+$TRANSLATION["Cannot destroy %s %d, because %s %d still references this object."] =
+             "Kan %s %d niet vernietigen, omdat %s %d nog verwijst naar dit object.";
+// Unused:
+$TRANSLATION["Unit"] =
+             "Unit";
+$TRANSLATION["Can't add a %s to %s %d, because %s %d defies such co-facets."] =
+             "Kan geen %s aan %s %d toevoegen, omdat %s %d niet wil samenwerken met dergelijke co-facetten.";
+$TRANSLATION["%s %d already has a(n) %s"] =
+             "%s %d heeft al een %s";
+$TRANSLATION["Only superusers are allowed to create superusers."] =
+             "Alleen superusers mogen nieuwe superusers maken.";
+$TRANSLATION["Only superusers can set effective group id outside their own groups."] =
+             "Alleen superusers mogen een effective group id buiten de eigen groep zetten.";
+$TRANSLATION["Only superusers can (un)set superuser-flags."] =
+             "Alleen superusers mogen superuser-vlaggen aan- of uitzetten.";
+// Unused:
+$TRANSLATION["Link"] =
+             "Link";
+$TRANSLATION["%s %d has been recreated!"] =
+             "%s %d is opnieuw aangemaakt!";
+// Unused:
+$TRANSLATION["Parameter such-and-so is required!"] =
+             "Parameter zus-en-zo is vereist!";
+// Unused:
+$TRANSLATION["Required parameter 'name' is missing."] =
+             "Vereiste parameter 'name' mist.";
+$TRANSLATION["Password"] =
+             "Wachtwoord";
+// Unused:
+$TRANSLATION["Manager"] =
+             "Manager";
+// Unused:
+$TRANSLATION["Price group"] =
+             "Prijsgroup";
+// Unused:
+$TRANSLATION["Notification"] =
+             "Bericht";
+// Unused:
+$TRANSLATION["Name"] =
+             "Naam";
+// Unused:
+$TRANSLATION["Gender"] =
+             "Geslacht";
+// Unused:
+$TRANSLATION["Company"] =
+             "Bedrijf";
+// Unused:
+$TRANSLATION["Department"] =
+             "Afdeling";
+// Unused:
+$TRANSLATION["Street"] =
+             "Straat";
+// Unused:
+$TRANSLATION["Number"] =
+             "Nummer";
+// Unused:
+$TRANSLATION["City"] =
+             "Stad";
+// Unused:
+$TRANSLATION["Zip code"] =
+             "Postcode";
+$TRANSLATION["Country"] =
+             "Land";
+// Unused:
+$TRANSLATION["Phone number"] =
+             "Telefoonnummer";
+// Unused:
+$TRANSLATION["Fax number"] =
+             "Faxnummer";
+// Unused:
+$TRANSLATION["Email address"] =
+             "Email adres";
+// Unused:
+$TRANSLATION["Newsletter"] =
+             "Nieuwsbrief";
+// Unused:
+$TRANSLATION["Discount Percentage"] =
+             "Kortingspercentage";
+// Unused:
+$TRANSLATION["Absolute discount"] =
+             "Absolute korting";
+// Unused:
+$TRANSLATION["CoC number"] =
+             "KvK-nummer";
+// Unused:
+$TRANSLATION["PayAccount"] =
+             "Op rekening";
+// Unused:
+$TRANSLATION["Credit limit"] =
+             "Credietlimiet";
+// Unused:
+$TRANSLATION["Debtor number"] =
+             "Debiteurnummer";
+// Unused:
+$TRANSLATION["Remarks"] =
+             "Opmerkingen";
+// Unused:
+$TRANSLATION["Accountmanager"] =
+             "Accountmanager";
+// Unused:
+$TRANSLATION["Order costs"] =
+             "Orderkosten";
+// Unused:
+$TRANSLATION["Type"] =
+             "Type";
+// Unused:
+$TRANSLATION["VAT number"] =
+             "BTW-nummer";
+// Unused:
+$TRANSLATION["Visible"] =
+             "Zichtbaar";
+// Unused:
+$TRANSLATION["Shop"] =
+             "Winkel";
+// Unused:
+$TRANSLATION["Old ID"] =
+             "Oude ID";
+$TRANSLATION["Unknown type %s"] =
+             "Onbekend type %s";
+$TRANSLATION["Object %d not found"] =
+             "Object %d niet gevonden";
+$TRANSLATION["%s %d won't accept this facet"] =
+             "%s %d accepteert dit facet niet";
+$TRANSLATION["Persistent object"] =
+             "Persistent object";
+// Unused:
+$TRANSLATION["Deprecated property customer::%s is used."] =
+             "Deprecated property customer::%s wordt gebruikt.";
+// Unused:
+$TRANSLATION["Payment method"] =
+             "Betaalmethode";
+// Unused:
+$TRANSLATION["Customer"] =
+             "Klant";
+// Unused:
+$TRANSLATION["Description"] =
+             "Omschrijving";
+// Unused:
+$TRANSLATION["Threshold"] =
+             "Drempelwaarde";
+// Unused:
+$TRANSLATION["Percentage"] =
+             "Percentage";
+// Unused:
+$TRANSLATION["Minimum costs"] =
+             "Minimum kosten";
+// Unused:
+$TRANSLATION["Maximum costs"] =
+             "Maximum kosten";
+// Unused:
+$TRANSLATION["Handling fee"] =
+             "Administratiekosten";
+// Unused:
+$TRANSLATION["Old sub-ID"] =
+             "Oude sub-ID";
+// Unused:
+$TRANSLATION["Standard"] =
+             "Standaard";
+// Unused:
+$TRANSLATION["Terms"] =
+             "Voorwaarden";
+// Unused:
+$TRANSLATION["Ordercosts"] =
+             "Orderkosten";
+// Unused:
+$TRANSLATION["Delivery method"] =
+             "Wijze van aflevering";
+// Unused:
+$TRANSLATION["Required parameter '"] =
+             "Vereiste parameter '";
+// Unused:
+$TRANSLATION["' is missing."] =
+             "' ontbreekt.";
+// Unused:
+$TRANSLATION["Payment methods"] =
+             "Betaalmethoden";
+// Unused:
+$TRANSLATION["emit() called on destroyed %s %d with the following arguments:
+%s"] =
+             "emit() aangeroepen op vernietigd(e) %s %d met de volgende argumenten:
+%s";
+// Unused:
+$TRANSLATION["Linked object 1"] =
+             "Linked object 1";
+// Unused:
+$TRANSLATION["Linked object 2"] =
+             "Linked object 2";
+$TRANSLATION["Username"] =
+             "Gebruikersnaam";
+$TRANSLATION["Log in"] =
+             "Inloggen";
+// Unused:
+$TRANSLATION["Product"] =
+             "Product";
+// Unused:
+$TRANSLATION["Supplier's product ID"] =
+             "Product ID van leverancier";
+// Unused:
+$TRANSLATION["Collection point"] =
+             "Afhaalpunt";
+$TRANSLATION["Trying to set property \"sex\" %s."] =
+             "Trying to set property \"sex\" %s.";
+$TRANSLATION[" "] =
+             " ";
+$TRANSLATION["is"] =
+             "is";
+$TRANSLATION[">"] =
+             ">";
+$TRANSLATION["<"] =
+             "<";
+$TRANSLATION["contains"] =
+             "bevat";
+$TRANSLATION["yes"] =
+             "ja";
+$TRANSLATION["no"] =
+             "nee";
+$TRANSLATION["before"] =
+             "voor";
+$TRANSLATION["after"] =
+             "na";
+$TRANSLATION["Access denied. Log in through "] =
+             "Toegang geweigerd. Log in via ";
+$TRANSLATION["An unknown error occured."] =
+             "Een onbekende fout is opgetreden.";
+$TRANSLATION["Required GPC attribute \"class\" is missing, or inaccurate."] =
+             "Required GPC attribute \"class\" is missing, or inaccurate.";
+$TRANSLATION["Group permissions"] =
+             "Groepsrechten";
+$TRANSLATION["World permissions"] =
+             "Wereldrechten";
+// Unused:
+$TRANSLATION["Del. name"] =
+             "Afl. naam";
+// Unused:
+$TRANSLATION["Del. gender"] =
+             "Afl. geslacht";
+// Unused:
+$TRANSLATION["Del. company"] =
+             "Afl. bedrijf";
+// Unused:
+$TRANSLATION["Del. department"] =
+             "Afl. afdeling";
+// Unused:
+$TRANSLATION["Del. street"] =
+             "Afl. straat";
+// Unused:
+$TRANSLATION["Del. number"] =
+             "Afl. huisnr.";
+// Unused:
+$TRANSLATION["Del. city"] =
+             "Afl. stad";
+// Unused:
+$TRANSLATION["Del. zipcode"] =
+             "Afl. postcode";
+// Unused:
+$TRANSLATION["Del. country"] =
+             "Afl. land";
+// Unused:
+$TRANSLATION["Del. phone number"] =
+             "Afl. tel.nr.";
+// Unused:
+$TRANSLATION["Del. fax number"] =
+             "Afl. fax nr.";
+// Unused:
+$TRANSLATION["Del. email address"] =
+             "Afl. email";
+$TRANSLATION["Country code '%s' doesn't exist."] =
+             "Landcode '%s' bestaat niet.";
+$TRANSLATION["Permissions"] =
+             "Permissies";
+$TRANSLATION["The password is '%s'."] =
+             "Het wachtwoord is '%s'.";
+$TRANSLATION["none"] =
+             "geen";
+$TRANSLATION["read"] =
+             "lees";
+$TRANSLATION["read/write"] =
+             "lees/schrijf";
+$TRANSLATION["Logout"] =
+             "Uitloggen";
+$TRANSLATION["Page %s of %s"] =
+             "Pagina %s van %s";
+$TRANSLATION["All"] =
+             "Alle";
+$TRANSLATION["Delete"] =
+             "Verwijderen";
+// Unused:
+$TRANSLATION["Are you sure you want to delete all selected objects?"] =
+             "Weet u zeker dat u de geselecteerde items wilt verwijderen?";
+// Unused:
+$TRANSLATION["Last modified:"] =
+             "Laatste wijziging:";
+// Unused:
+$TRANSLATION["by:"] =
+             "door:";
+$TRANSLATION["Object %d not found."] =
+             "Object %d niet gevonden.";
+$TRANSLATION["Items %d - %d of %d"] =
+             "Items %d - %d van %d";
+$TRANSLATION["Edit"] =
+             "Wijzigen";
+// Unused:
+$TRANSLATION["Address"] =
+             "Adres";
+$TRANSLATION["Property '%s' of %s cannot be NULL"] =
+             "Eigenschap '%s' van %s mag niet leeg zijn.";
+$TRANSLATION["Object %d is not of type %s"] =
+             "Object %d is geen %s";
+$TRANSLATION["html() called on object %d which is of type %s"] =
+             "html() called on object %d which is of type %s";
+$TRANSLATION["Unknown object"] =
+             "Onbekend object";
+$TRANSLATION["Properties"] =
+             "Eigenschappen";
+$TRANSLATION["Only superusers can destroy superusers."] =
+             "Alleen super-users kunnen super-users verwijderen.";
+$TRANSLATION["Superuser"] =
+             "Super-user";
+$TRANSLATION["Effective groupID"] =
+             "Effectieve groep";
+$TRANSLATION["Owner"] =
+             "Eigenaar";
+$TRANSLATION["¬is"] =
+             "¬is";
+$TRANSLATION["¬contains"] =
+             "¬bevat";
+$TRANSLATION["begins w/"] =
+             "begint met";
+$TRANSLATION["¬begins w/"] =
+             "¬begint met";
+$TRANSLATION["Can't be filtered"] =
+             "Can niet worden gefilterd";
+$TRANSLATION["Reset"] =
+             "Reset";
+$TRANSLATION["Use this filter"] =
+             "Gebruik dit filter";
+$TRANSLATION["Cancel edit"] =
+             "Annuleren";
+$TRANSLATION["Property %s of %s is virtual."] =
+             "Eigenschap '%s' of %s is virtueel.";
+$TRANSLATION["Short text"] =
+             "Korte tekst";
+$TRANSLATION["Virtual property '%s' of class '%s' seems to be unimplemented."] =
+             "Virtuele eigenschap '%s' van '%s' lijkt niet te zijn geïmplementeerd.";
+$TRANSLATION[" (new)"] =
+             " (nieuw)";
+$TRANSLATION["Create new facet"] =
+             "Maak nieuw facet";
+$TRANSLATION["Read only"] =
+             "Alleen lezen";
+$TRANSLATION["Create another %s after this one:"] =
+             "Maak nog een %s na deze:";
+$TRANSLATION["Cancel"] =
+             "Annuleren";
+$TRANSLATION["Create"] =
+             "Creëren";
+$TRANSLATION["Select"] =
+             "Selecteer";
+$TRANSLATION["Last modified on %s by %s"] =
+             "Laatste aanpassing %s door %s";
+$TRANSLATION["Are you sure you want to delete this facet?"] =
+             "Weet u zeker dat u dit facet wilt verwijderen?";
+// Unused:
+$TRANSLATION["Are you sure you want to delete this object?"] =
+             "Weet u zeker dat u dit object wilt verwijderen?";
+$TRANSLATION["No objects"] =
+             "Geen objecten";
+$TRANSLATION["Show"] =
+             "Tonen";
+$TRANSLATION["Hide"] =
+             "Verbergen";
+$TRANSLATION["Inspect"] =
+             "Bekijken";
+$TRANSLATION["Unknown group"] =
+             "Onbekende groep";
+$TRANSLATION["Unknown user"] =
+             "Onbekende gebruiker";
+// Unused:
+$TRANSLATION["Addresses"] =
+             "Adressen";
+$TRANSLATION["Permission denied."] =
+             "Toegang geweigerd.";
+// Unused:
+$TRANSLATION["is missing."] =
+             "ontbreekt.";
+// Unused:
+$TRANSLATION["Customers"] =
+             "Klanten";
+// Unused:
+$TRANSLATION["Subordinates"] =
+             "Ondergeschikten";
+$TRANSLATION["Previous"] =
+             "Vorige";
+$TRANSLATION["First"] =
+             "Eerste";
+$TRANSLATION["New"] =
+             "Nieuw";
+$TRANSLATION["Connect"] =
+             "Verbinden";
+$TRANSLATION["Export"] =
+             "Exporteren";
+$TRANSLATION["Filter"] =
+             "Filteren";
+$TRANSLATION["objects<br />per page"] =
+             "objecten<br />per pagina";
+$TRANSLATION["Last"] =
+             "Laatste";
+$TRANSLATION["Next"] =
+             "Volgende";
+// Unused:
+$TRANSLATION["Customer's payment method"] =
+             "Betaalmethode van deze klant";
+$TRANSLATION["Aggregated object"] =
+             "Samengesteld object";
+// Unused:
+$TRANSLATION["Property 'people_object' is immutable."] =
+             "Eigenschap 'people_object' is onveranderlijk.";
+$TRANSLATION["Access denied: you have no write permissions for %s %d"] =
+             "Toegang gewijgerd: u heeft geen schrijfrechten voor %s %d";
+// Unused:
+$TRANSLATION["No aggregating property specified for class %s."] =
+             "Geen aggregerende eigenschap gespecificeerd voor klasse %s.";
+// Unused:
+$TRANSLATION["You're not allowed to add a(n) %s to %s %d."] =
+             "U mag geen %s aan %s %d toevoegen.";
+// Unused:
+$TRANSLATION["What is this?!?!?"] =
+             "Wat is dit?!?!?";
+// Unused:
+$TRANSLATION["Required property %s is missing."] =
+             "Vereiste eigenschap %s ontbreekt.";
+$TRANSLATION["Property %s of class %s is immutable, because it's an aggregating property."] =
+             "Eigenschap %s van klasse %s is onveranderlijk, omdat het een aggregerende eigenschap is.";
+$TRANSLATION["Class %s can't be aggregated, because it's already aggregated in superclass %s."] =
+             "Klasse %s kan niet worden geaggregeerd, omdat ze al geaggregeerd is in superklasse %s.";
+$TRANSLATION["Class %s has no property called %s."] =
+             "Klasse %s heeft geen eigenschap genaamd %s.";
+$TRANSLATION["Facet owner"] =
+             "Facet-eigenaar";
+$TRANSLATION["Object %s not found."] =
+             "Object %s niet gevonden.";
+// Unused:
+$TRANSLATION["You're not allowed to add a(n) %s to %s."] =
+             "U mag geen %s aan %s toevoegen.";
+$TRANSLATION["Property PeopleFacet::people_object is immutable."] =
+             "Eigenschap PeopleFacet::people_object is onveranderlijk.";
+$TRANSLATION["Property %s of class %s is read only."] =
+             "Eigenschap %s van klasse %s mag niet beschreven worden.";
+$TRANSLATION["You're not allowed to add a(n) %s to %s"] =
+             "U mag geen %s aan %s toevoegen";
+$TRANSLATION["Object Browser Login"] =
+             "Object Browser Login";
+$TRANSLATION["Disconnect"] =
+             "Verbinding verbreken";
+$TRANSLATION["Are you sure?"] =
+             "Weet u het zeker?";
+// Unused:
+$TRANSLATION["Anonymous shopping cart"] =
+             "Anoniem winkelwagentje";
+// Unused:
+$TRANSLATION["Unknown user's shopping cart"] =
+             "Winkelwagentje van anonieme gebruiker";
+// Unused:
+$TRANSLATION["Shopping cart of %s"] =
+             "Winkelwagentje van %s";
+// Unused:
+$TRANSLATION["Value X is invalid for property Y!!!"] =
+             "Waarde X is niet toegestaan voor eigenschap Y!!!";
+// Unused:
+$TRANSLATION["Some error message"] =
+             "Een foutmelding";
+// Unused:
+$TRANSLATION["Supplier"] =
+             "Leverancier";
+// Unused:
+$TRANSLATION["Vendor"] =
+             "Fabrikant";
+// Unused:
+$TRANSLATION["Vendor's product ID"] =
+             "Productnummer fabrikant";
+// Unused:
+$TRANSLATION["Information"] =
+             "Informatie";
+// Unused:
+$TRANSLATION["Category"] =
+             "Categorie";
+// Unused:
+$TRANSLATION["Purchase price"] =
+             "Inkoopprijs";
+// Unused:
+$TRANSLATION["Suggested price"] =
+             "Adviesprijs";
+// Unused:
+$TRANSLATION["End-user price"] =
+             "Eindgebruiker-prijs";
+// Unused:
+$TRANSLATION["Stock"] =
+             "Voorraad";
+// Unused:
+$TRANSLATION["Minimal units"] =
+             "Minimaal eenheden";
+// Unused:
+$TRANSLATION["Units"] =
+             "Eenheden";
+// Unused:
+$TRANSLATION["Shopping cart"] =
+             "Winkelwagentje";
+// Unused:
+$TRANSLATION["Category ID"] =
+             "Categorie ID";
+// Unused:
+$TRANSLATION["Supercategory"] =
+             "Supercategorie";
+// Unused:
+$TRANSLATION["VAT"] =
+             "BTW";
+// Unused:
+$TRANSLATION["Custom tax rate"] =
+             "Afwijkend belastingtarief";
+// Unused:
+$TRANSLATION["Discount"] =
+             "Korting";
+// Unused:
+$TRANSLATION["Subcategories"] =
+             "Subcategorieën";
+// Unused:
+$TRANSLATION["Page entries"] =
+             "Op deze pagina";
+// Unused:
+$TRANSLATION["Products"] =
+             "Producten";
+// Unused:
+$TRANSLATION["Price rules"] =
+             "Prijsregels";
+// Unused:
+$TRANSLATION["Start date"] =
+             "Startdatum";
+// Unused:
+$TRANSLATION["End date"] =
+             "Einddatum";
+// Unused:
+$TRANSLATION["Price"] =
+             "Prijs";
+// Unused:
+$TRANSLATION["Margin"] =
+             "Marge";
+// Unused:
+$TRANSLATION["Pricelist"] =
+             "Prijslijst";
+// Unused:
+$TRANSLATION["Category page entry"] =
+             "Op deze categoriepagina";
+// Unused:
+$TRANSLATION["Order number"] =
+             "Ordernummer";
+// Unused:
+$TRANSLATION["Canonical names"] =
+             "Tevens bekend als";
+// Unused:
+$TRANSLATION["Canonical name"] =
+             "Tevens bekend als";
+// Unused:
+$TRANSLATION["Category pages"] =
+             "Categoriepagina's";
+// Unused:
+$TRANSLATION["Supplier code"] =
+             "Leveranciercode";
+// Unused:
+$TRANSLATION["Some AObject"] =
+             "Een AObject";
+// Unused:
+$TRANSLATION["real property name"] =
+             "echte eigenschapsnaam";
+// Unused:
+$TRANSLATION["real foreign key name"] =
+             "echte sleutelnaam";
+$TRANSLATION["Language"] =
+             "Language";
+$TRANSLATION["Facet"] =
+             "Facet";
+$TRANSLATION["Group name"] =
+             "Group name";
+$TRANSLATION["Members"] =
+             "Members";
+$TRANSLATION["\"Effective\" users"] =
+             "\"Effective\" users";
+$TRANSLATION["Login"] =
+             "Login";
+
+?>
