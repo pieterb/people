@@ -34,13 +34,21 @@ class PeopleDBDate extends PeopleDBValue
 protected function validate($value) {
   if (is_null($value)) return NULL;
   if (is_int($value)) return gmdate('Y-m-d', $value);
-  if (is_string($value) &&
-      preg_match('/^(\\d{4})\\D(\\d{2})\\D(\\d{2})$/', $value, $matches))
-    return "{$matches[1]}-{$matches[2]}-{$matches[3]}";
-  throw PeopleException::bad_parameters(
-    func_get_args(),
-    People::tr('Not a valid date')
+  if (!is_string($value) ||
+      !preg_match('/^(\\d{1,4})\\D(\\d{1,2})\\D(\\d{1,2})$/', $value, $matches))
+    throw PeopleException::bad_parameters(
+      func_get_args(),
+      People::tr('Not a properly formatted date (YYYY-MM-DD)')
+    );
+  $formatted = sprintf(
+    '%04d-%02d-%02d', $matches[1], $matches[2], $matches[3]
   );
+  if ($formatted !== gmdate('Y-m-d', strtotime("$formatted 00:00:00 UTC")))
+    throw PeopleException::bad_parameters(
+      func_get_args(),
+      People::tr('Non existing date')
+    );
+  return $formatted;
 }
 
 
@@ -69,7 +77,7 @@ public function week() {
 }
 
 
-public function format($format) {
+public function gmdate($format) {
   return is_null($this->i_value) ? '' :
     gmdate($format, strtotime("{$this->i_value} 00:00:00 UTC"));
 }

@@ -33,11 +33,18 @@ class PeopleDBCurrency extends PeopleDBValue
 
 
 protected function validate($value) {
-  return is_null($value) ? NULL : (double)$value;
+  if (is_null($value)) return NULL;
+  if (is_numeric($value)) return $value;
+  throw PeopleException::bad_parameters(func_get_args());
 }
 
 
-public function SQLType() { return 'd'; }
+public function sql() {
+  return is_null($this->i_value) ? NULL : (string)$this->i_value;
+}
+
+
+public function SQLType() { return 's'; }
 
 
 } // end of Type

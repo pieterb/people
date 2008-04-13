@@ -32,22 +32,41 @@ class PeopleDBDateTime extends PeopleDBValue
 
 
 public function sql() {
-  return is_null($this->i_value) ? NULL : gmdate('Y-m-d H-i-s', $this->i_value);
+  return is_null($this->i_value) ? NULL : gmdate('Y-m-d H:i:s', $this->i_value);
 }
 
 
 protected function validate($value) {
   if (is_null($value)) return NULL;
-  if (is_string($value)) return strtotime("$value UTC");
-  return (int)$value;
+  if (is_numeric($value)) return (int)$value;
+  if (is_string($value)) {
+    $oldtz = date_default_timezone_get();
+    if ($oldtz != 'UTC') date_default_timezone_set('UTC');
+    $retval = strtotime("$value");
+    if ($oldtz != 'UTC') date_default_timezone_set($oldtz);
+    if ($retval === FALSE)
+      throw PeopleException::bad_parameters(
+        func_get_args(),
+        People::tr('Invalid time')
+      );
+    return $retval;
+  }
+  throw PeopleException::bad_parameters(
+    func_get_args(),
+    People::tr('Invalid type')
+  );
 }
 
 
 public function SQLType() { return 's'; }
 
 
-public function date($format) { return date($format, $this->i_value); }
-public function gmdate($format) { return gmdate($format, $this->i_value); }
+public function date($format) {
+  return is_null($this->i_value) ? '' : date($format, $this->i_value);
+}
+public function gmdate($format) {
+  return is_null($this->i_value) ? '' : gmdate($format, $this->i_value);
+}
 
 
 /**
@@ -58,6 +77,7 @@ public function gmdate($format) { return gmdate($format, $this->i_value); }
  * @return PeopleDBDate $this
  */
 public function diff($n, $what) {
+  if (is_null($this->i_value)) return $this;
   if ( !is_int($n) or
        !in_array(
          $what, array(
@@ -73,10 +93,9 @@ public function diff($n, $what) {
      )
      throw PeopleException::bad_parameters(func_get_args());
   if ($n >= 0) $n = "+$n";
-  if (! is_null($this->i_value))
-    $this->set( strtotime( gmdate(
-      'Y-m-d G:i:s UTC', $this->i_value
-    ) . " $n $what" ) );
+  $this->set( strtotime( gmdate(
+    'Y-m-d G:i:s', $this->i_value
+  ) . " UTC $n $what" ) );
   return $this;
 }
 

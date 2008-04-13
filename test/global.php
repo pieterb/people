@@ -21,6 +21,10 @@
 
 require_once '../inc/People.php';
 require_once 'PHPUnit/Framework.php';
+require_once 'PHPUnit/TextUI/TestRunner.php';
+require_once 'PHPUnit/Framework/TestSuite.php';
+
+//PHPUnit_Framework_Notice::$enabled = FALSE;
 
 function __autoload($classname) {
   require_once("$classname.php");

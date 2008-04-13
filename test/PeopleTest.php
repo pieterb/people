@@ -15,45 +15,29 @@
 
 /**
  * @package People
- * @subpackage DBValue
+ * @subpackage Tests
  * @author Pieter van Beek <pieter@djinnit.com>
  */
+
+require_once dirname(__FILE__) . DIRECTORY_SEPARATOR . 'global.php';
 
 /**
- * An integer in the database.
- * The preferred representation of this class in the database is
- * <pre>BIGINT</pre> with NULL values allowed.
+ * A unit test.
  * @package People
- * @subpackage DBValue
+ * @subpackage Tests
  * @author Pieter van Beek <pieter@djinnit.com>
  */
-class PeopleDBInteger extends PeopleDBValue
+class PeopleTest
 {
 
-
-protected function validate($value) {
-  if (is_null($value)) return NULL;
-  if (!preg_match('/^\\s*([\\-+]?)\\s*(\\d+)\\s*$/', "$value", $matches))
-    throw PeopleException::bad_parameters(func_get_args());
-  if ($matches[1] == '+') $matches[1] = '';
-  return $matches[1] . $matches[2];
+public static function suite() {
+  $suite = new PHPUnit_Framework_TestSuite('PHPUnit Framework');
+  $suite->addTestSuite('PeopleDBValueTest');
+  $suite->addTestSuite('PeopleDBDateTest');
+  $suite->addTestSuite('PeopleDBDateTimeTest');
+  return $suite;
 }
 
-
-public function value() {
-  return ((string)(int)($this->i_value) == $this->i_value) ?
-    (int)($this->i_value) : $this->i_value;
-}
-
-
-public function sql() {
-  return is_null($this->i_value) ? NULL : (string)$this->i_value;
-}
-
-
-public function SQLType() { return 's'; }
-
-
-} // end of Type
+} // class
 
 ?>

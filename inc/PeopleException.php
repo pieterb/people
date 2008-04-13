@@ -125,12 +125,12 @@ public function __construct(
     $message = People::tr('No message');
   $message = trim($message);
   parent::__construct($message, $code);
-  trigger_error(
-    sprintf(
-      People::tr("An exception was thrown. Stack trace:\n%s\nMessage:\n%s"),
-      $this->getTraceAsString(), $message
-    ), E_USER_NOTICE
-  );
+//  trigger_error(
+//    sprintf(
+//      People::tr("An exception was thrown. Stack trace:\n%s\nMessage:\n%s"),
+//      $this->getTraceAsString(), $message
+//    ), E_USER_NOTICE
+//  );
 }
 
 
@@ -155,10 +155,10 @@ private static function derecursify($p) {
  * Constructor.
  * @param array $parameters The parameters with which the failing method
  * was called.
- * @param string $reason The reason why these parameters are unexpected.
+ * @param string $reason a reason why the parameters are bad.
  * @return PeopleException
  */
-public static function bad_parameters($parameters) {
+public static function bad_parameters($parameters, $reason = NULL) {
   $message = sprintf(
     People::tr("Unexpected parameters:\n%s"),
     var_export(self::derecursify($parameters), TRUE)

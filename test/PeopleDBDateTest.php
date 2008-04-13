@@ -15,45 +15,49 @@
 
 /**
  * @package People
- * @subpackage DBValue
+ * @subpackage Tests
  * @author Pieter van Beek <pieter@djinnit.com>
  */
+
+require_once dirname(__FILE__) . '/global.php';
 
 /**
- * An integer in the database.
- * The preferred representation of this class in the database is
- * <pre>BIGINT</pre> with NULL values allowed.
+ * A unit test.
  * @package People
- * @subpackage DBValue
+ * @subpackage Tests
  * @author Pieter van Beek <pieter@djinnit.com>
  */
-class PeopleDBInteger extends PeopleDBValue
+class PeopleDBDateTest extends PHPUnit_Framework_TestCase
 {
 
-
-protected function validate($value) {
-  if (is_null($value)) return NULL;
-  if (!preg_match('/^\\s*([\\-+]?)\\s*(\\d+)\\s*$/', "$value", $matches))
-    throw PeopleException::bad_parameters(func_get_args());
-  if ($matches[1] == '+') $matches[1] = '';
-  return $matches[1] . $matches[2];
+public static function providerDiff() {
+  return array (
+    array('1972-02-28', 1, 'day',    '1972-02-29'),
+    array('1972-02-28', 1, 'week',   '1972-03-06'),
+    array('1972-02-28', 1, 'month',  '1972-03-28'),
+    array('1972-03-31', 1, 'month',  '1972-05-01'),
+    array('1972-01-31', 1, 'year',   '1973-01-31'),
+    array('1972-02-29', 1, 'year',   '1973-03-01'),
+  );
 }
 
-
-public function value() {
-  return ((string)(int)($this->i_value) == $this->i_value) ?
-    (int)($this->i_value) : $this->i_value;
+/**
+ * @dataProvider providerDiff
+ */
+public function testDiff($p_time, $p_diff, $p_what, $p_expected) {
+  $fixture = new PeopleDBDate($p_time);
+  $fixture->diff($p_diff, $p_what);
+  $this->assertSame($p_expected, $fixture->sql());
 }
 
-
-public function sql() {
-  return is_null($this->i_value) ? NULL : (string)$this->i_value;
+public function testDateAndGMDate() {
+  $fixture = new PeopleDBDate('1999-12-31');
+  $this->assertSame(1999, $fixture->year());
+  $this->assertSame(12, $fixture->month());
+  $this->assertSame(31, $fixture->day());
+  $this->assertSame(52, $fixture->week());
 }
 
-
-public function SQLType() { return 's'; }
-
-
-} // end of Type
+} // class
 
 ?>
