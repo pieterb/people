@@ -19,8 +19,6 @@
  * @author Pieter van Beek <pieter@djinnit.com>
  */
 
-
-
 /**
  * Registry of all Persistent Objects in one database
  * <i>No object comes to life but through me.</i>
@@ -39,6 +37,7 @@ class PeopleRegistry
 //                               STATE                                    //
 ////////////////////////////////////////////////////////////////////////////
 
+const MAX_PACKET_SIZE = 1024;
 
 /**
  * Cache of partial SQL statements.
@@ -343,41 +342,38 @@ public function execute() {
     if ( $value instanceof PeopleObject )
       $value = new PeopleDBObject( $value );
   $params = array('');
+  $lobs = array();
   foreach ($args as $arg) {
-//    if ( $arg instanceof PeopleDBValue &&
-//         $arg->SQLType() == PDO::PARAM_LOB) {
-//      $fh[$i] = tmpfile();
-//      if (!fwrite($fh[$i], $arg->sql()))
-//        throw new PeopleException(
-//          People::tr('Couldn\'t write LOB to temporary file'),
-//          PeopleException::E_RUNTIME_ERROR
-//        );
-//      fseek($fh[$i], 0);
-//      $stmt->bindValue(
-//        $i + 1,
-//        $fh[$i],
-//        PDO::PARAM_LOB
-//      );
-//    } else
     if ( $arg instanceof PeopleDBValue ) {
-      $params[0] .= $arg->SQLType();
-      $params[] = $arg->sql();
+      $type = $arg->SQLType();
+      $arg = $arg->sql();
     } else {
-      $params[0] .= 's';
+      $type = 's';
+    }
+    if (strlen($arg) > self::MAX_PACKET_SIZE) {
+      $parameternumber = strlen($params[0]);
+      $lobs[$parameternumber] = $arg;
+      $params[0] .= 'b';
+      $params[] = NULL;
+    } else {
+      $params[0] .= $type;
       $params[] = $arg;
     }
   }
+  if ( count($lobs) )
+    foreach ($lobs as $key => $value) {
+      $start = 0;
+      while ($start < strlen($value)) {
+        $stmt->send_long_data( $key, substr($value, $start, self::MAX_PACKET_SIZE) );
+        $start += self::MAX_PACKET_SIZE;
+      }
+    }
   if ( count($args) &&
        !call_user_func_array(array($stmt, 'bind_param'), $params))
     throw new PeopleException(
       sprintf(
         People::tr('Can\'t bind params: %s'), var_export($params, TRUE)
       ), PeopleException::E_LOGICAL_ERROR
-    );
-  if (!is_object($stmt))
-    REST::inst()->fatal(
-      'INTERNAL_SERVER_ERROR',
-      var_export($stmt, TRUE)
     );
   if (!$stmt->execute()) {
     if ($stmt->errno == 1062)

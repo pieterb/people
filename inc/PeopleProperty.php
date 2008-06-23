@@ -47,7 +47,6 @@ const CURRENCY =  3;
 const DATE     =  9;
 const DATETIME = 11;
 const INTEGER  =  1;
-const LOB      =  5;
 const OBJECT   =  7;
 const TEXT     =  2;
 /**#@-*/
