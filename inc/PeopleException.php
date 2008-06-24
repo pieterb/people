@@ -69,13 +69,13 @@ const E_BLOCKED_DESTROY = -4;
 
 
 /**
- * Some object doesn't exist.
+ * Some object was out of date.
  */
 const E_OUT_OF_DATE = -5;
 
 
 /**
- * Logical Error.
+ * Logical error.
  * An exception of this type is thrown if a condition occurs that indicates
  * a flaw in the application logic.
  */
@@ -83,9 +83,9 @@ const E_LOGICAL_ERROR = 1;
 
 
 /**
- * Logical Error.
- * An exception of this type is thrown if a condition occurs that indicates
- * a flaw in the application logic.
+ * Bad parameters.
+ * An exception of this type is thrown by a method if it detects that it
+ * received bad parameters.
  */
 const E_BAD_PARAMS = 2;
 
