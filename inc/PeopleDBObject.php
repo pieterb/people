@@ -21,6 +21,8 @@
 
 /**
  * An object value in the database.
+ * The preferred representation of this class in the database is
+ * <pre>BIGINT UNSIGNED</pre>.
  * @package People
  * @subpackage DBValue
  * @author Pieter van Beek <pieter@djinnit.com>
@@ -36,13 +38,25 @@ class PeopleDBObject extends PeopleDBValue
  * Cool huh?
  */
 protected function validate($value) {
-  if (empty($value)) return NULL;
-  if ($value instanceof PeopleObject) return $value->id();
-  return (int)$value;
+  if (is_null($value)) return NULL;
+  if (!preg_match('/^\\s*(\\d+)\\s*$/', "$value", $matches))
+    throw PeopleException::bad_parameters(func_get_args());
+  return $matches[1];
 }
 
 
-public function SQLType() { return 'i'; }
+public function value() {
+  return ((string)(int)($this->i_value) == $this->i_value) ?
+    (int)($this->i_value) : $this->i_value;
+}
+
+
+public function sql() {
+  return is_null($this->i_value) ? NULL : (string)$this->i_value;
+}
+
+
+public function SQLType() { return 's'; }
 
 
 } // end of Type
