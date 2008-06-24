@@ -22,7 +22,7 @@
 /**
  * An integer in the database.
  * The preferred representation of this class in the database is
- * <pre>BIGINT</pre> with NULL values allowed.
+ * <pre>BIGINT</pre>.
  * @package People
  * @subpackage DBValue
  * @author Pieter van Beek <pieter@djinnit.com>
