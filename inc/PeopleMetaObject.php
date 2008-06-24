@@ -111,13 +111,12 @@ public function parentMeta() {
  * @param string $realName
  * @param int $type
  * @param int $flags
- * @param string $classname
  * @param mixed $default The default value for this property
  * @return PeopleMetaObject $this
  */
-protected function registerProperty( $name, $type, $flags = 0, $classname = NULL, $default = NULL ) {
+protected function registerProperty( $name, $type, $flags = 0, $default = NULL ) {
   $this->i_properties[$this->classname()][$name] = 
-    new PeopleProperty( $name, $type, $flags, $classname, $default );
+    new PeopleProperty( $name, $type, $flags, $default );
   return $this;
 }
 
