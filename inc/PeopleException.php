@@ -111,7 +111,18 @@ private static function derecursify($p) {
  * @param array $parameters The parameters with which the failing method
  * was called.
  * @param string $reason a reason why the parameters are bad.
- * @return PeopleException
+ * @return PeopleLogicalError
+ */
+public static function logical_error($message) {
+  return new PeopleLogicalError($message);
+}
+
+
+/**
+ * @param array $parameters The parameters with which the failing method
+ * was called.
+ * @param string $reason a reason why the parameters are bad.
+ * @return PeopleLogicalError
  */
 public static function bad_parameters($parameters, $reason = NULL) {
   $message = sprintf(
@@ -128,7 +139,7 @@ public static function bad_parameters($parameters, $reason = NULL) {
  * @param array $parameters The parameters with which the failing method
  * was called.
  * @param string $reason a reason why the parameters are bad.
- * @return PeopleException
+ * @return PeopleLogicalError
  */
 public static function sql_error( $sql_error ) {
   return new PeopleLogicalError(
@@ -143,7 +154,7 @@ public static function sql_error( $sql_error ) {
 /**
  * @param string $classname
  * @param string $property
- * @return PeopleException
+ * @return PeopleLogicalError
  */
 public static function no_such_property($classname, $property) {
   return new PeopleLogicalError(
@@ -158,7 +169,7 @@ public static function no_such_property($classname, $property) {
 /**
  * @param string $classname
  * @param string $property
- * @return PeopleException
+ * @return PeopleLogicalError
  */
 public static function read_only($classname, $property) {
   return new PeopleLogicalError(
@@ -173,7 +184,7 @@ public static function read_only($classname, $property) {
 /**
  * @param string $classname
  * @param string $property
- * @return PeopleException
+ * @return PeopleLogicalError
  */
 public static function null_not_allowed($classname, $property) {
   return new PeopleLogicalError(
@@ -189,7 +200,7 @@ public static function null_not_allowed($classname, $property) {
  * @param string $targetclass
  * @param string $sourceclass
  * @param string $sourceprop
- * @return PeopleException
+ * @return PeopleLogicalError
  */
 public static function no_such_foreign_key($targetclass, $sourceclass, $sourceprop) {
   return new PeopleLogicalError(
@@ -205,9 +216,9 @@ public static function no_such_foreign_key($targetclass, $sourceclass, $sourcepr
  * @param mixed $referer
  * @param mixed $referee
  * @param string $propertyName
- * @return PeopleException
+ * @return PeopleRuntimeError
  */
-public function constraint($mysql_error) {
+public static function constraint($mysql_error) {
   return new PeopleRuntimeError(
     sprintf(
       People::tr("A database constraint was violated.\n%s"),
@@ -221,9 +232,9 @@ public function constraint($mysql_error) {
  * @param mixed $referer
  * @param mixed $referee
  * @param string $propertyName
- * @return PeopleException
+ * @return PeopleRuntimeError
  */
-public function blocked_destroy($referer, $referee, $propertyName) {
+public static function blocked_destroy($referer, $referee, $propertyName) {
   if (is_object($referer)) $referer = $referer->id();
   if (is_object($referee)) $referee = $referee->id();
   return new PeopleRuntimeError(
@@ -239,9 +250,9 @@ public function blocked_destroy($referer, $referee, $propertyName) {
  * @param mixed $referee
  * @param string $classname
  * @param string $propertyname
- * @return PeopleException
+ * @return PeopleRuntimeError
  */
-public function no_such_object(
+public static function no_such_object(
     $referee, $classname = NULL, $propertyname = NULL
 ) {
   if (is_null($classname) or is_null($propertname))
@@ -262,9 +273,9 @@ public function no_such_object(
 
 /**
  * @param PeopleObject $object
- * @return PeopleException
+ * @return PeopleRuntimeError
  */
-public function out_of_date($object) {
+public static function out_of_date($object) {
   return new PeopleRuntimeError(
     sprintf( People::tr('%s with id %s is out of date.'),
              get_class($object), $object->id() ),
@@ -275,9 +286,9 @@ public function out_of_date($object) {
 
 /**
  * @param PeopleObject $object
- * @return PeopleException
+ * @return PeopleRuntimeError
  */
-public function transaction_failed($sql_error) {
+public static function transaction_failed($sql_error) {
   return new PeopleRuntimeError(
     sprintf(
       People::tr("A database transaction failed.\n%s"),

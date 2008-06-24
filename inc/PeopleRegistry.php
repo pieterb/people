@@ -133,7 +133,7 @@ public function assertObject( $object_id, $classname = NULL ) {
   $retval = $this->getObject( $object_id, $classname );
   if ( is_null( $retval ) )
     if ($object_id instanceof PeopleFilter)
-      throw new PeopleLogicalError(
+      throw PeopleException::logical_error(
         People::tr( 'No objects in filter.' )
       );
     else
@@ -532,7 +532,7 @@ public function rollback() {
  */
 public function changed($object_id) {
   if (!isset($this->i_class_by_id[$object_id]))
-    throw new PeopleLogicalError(
+    throw PeopleException::logical_error(
       sprintf(
         People::tr('Unknown object %s claims to have changed.'),
         $object_id
@@ -550,7 +550,7 @@ public function changed($object_id) {
  */
 public function destroyed($object_id) {
   if (!isset($this->i_class_by_id[$object_id]))
-    throw new PeopleLogicalError(
+    throw PeopleException::logical_error(
       sprintf(
         People::tr('Unknown object %s claims to be destroyed.'),
         $object_id
@@ -571,7 +571,7 @@ public function registerObject(PeopleObject $object) {
   $id = $object->id();
   $classname = get_class($object);
   if ( isset( $this->i_class_by_id[$id] ) ) {
-    throw new PeopleLogicalError (
+    throw PeopleException::logical_error(
       sprintf(
         People::tr( '%s %d has been recreated!' ),
         get_class($object), $id
