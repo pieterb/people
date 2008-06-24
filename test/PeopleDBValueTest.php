@@ -96,6 +96,8 @@ public static function providerSQLType() {
     array('PeopleDBCurrency', 's'),
     array('PeopleDBDate', 's'),
     array('PeopleDBInteger', 's'),
+    array('PeopleDBObject', 's'),
+    array('PeopleDBText', 's'),
   );
 }
 

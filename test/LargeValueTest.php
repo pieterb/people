@@ -19,7 +19,7 @@
  * @author Pieter van Beek <pieter@djinnit.com>
  */
 
-require_once dirname(__FILE__) . DIRECTORY_SEPARATOR . 'global.php';
+require_once dirname(__FILE__) . '/global.php';
 
 /**
  * A unit test.
@@ -27,17 +27,27 @@ require_once dirname(__FILE__) . DIRECTORY_SEPARATOR . 'global.php';
  * @subpackage Tests
  * @author Pieter van Beek <pieter@djinnit.com>
  */
-class PeopleTest
+class LargeValueTest extends PHPUnit_Framework_TestCase
 {
 
-public static function suite() {
-  $suite = new PHPUnit_Framework_TestSuite('PHPUnit Framework');
-  $suite->addTestSuite('PeopleDBValueTest');
-  $suite->addTestSuite('PeopleDBDateTest');
-  $suite->addTestSuite('PeopleDBDateTimeTest');
-  $suite->addTestSuite('PeoplePropertyTest');
-  $suite->addTestSuite('LargeValueTest');
-  return $suite;
+public function testLargeValue() {
+  peopleClearDB();
+  global $PEOPLE_REGISTRY;
+  $address = new TestAddress( $PEOPLE_REGISTRY, array(
+      'address' => 'someAddress'
+    ));
+  $address_id = $address->id();
+  $PEOPLE_REGISTRY->persist();
+  $PEOPLE_REGISTRY->flush();
+  $address = $PEOPLE_REGISTRY->getObject( $address_id );
+  $this->assertSame( 'TestAddress', get_class( $address ) );
+  $this->assertSame( 'someAddress', $address->address );
+  $address->address = str_repeat('0123456789', 4096);
+  $PEOPLE_REGISTRY->persist();
+  $PEOPLE_REGISTRY->flush();
+  $address = $PEOPLE_REGISTRY->getObject( $address_id );
+  $this->assertSame( str_repeat('0123456789', 4096), $address->address );
+  
 }
 
 } // class
