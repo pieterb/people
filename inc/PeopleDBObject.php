@@ -41,7 +41,10 @@ protected function validate($value) {
   if (is_null($value)) return NULL;
   if ($value instanceof PeopleObject) return $value->id();
   if (!preg_match('/^\\s*(\\d+)\\s*$/', "$value", $matches))
-    throw PeopleException::bad_parameters(func_get_args());
+    throw PeopleException::bad_parameters(
+      func_get_args(),
+      People::tr('Value is neither an object nor an object id.')
+    );
   return $matches[1];
 }
 

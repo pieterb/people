@@ -32,10 +32,7 @@ function __autoload($classname) {
 
 $GLOBALS['PEOPLE_MYSQLI'] = new mysqli('localhost', 'people', 'people', 'test_people');
 if (mysqli_connect_errno())
-  throw new PeopleException(
-    'Connection failed: ' . mysqli_connect_error(),
-    PeopleException::E_RUNTIME_ERROR
-  );
+  throw new Exception( mysqli_connect_error() );
 $GLOBALS['PEOPLE_REGISTRY'] = new PeopleRegistry($GLOBALS['PEOPLE_MYSQLI']);
 
 date_default_timezone_set('Europe/Amsterdam');

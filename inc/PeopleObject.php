@@ -125,7 +125,10 @@ public function __construct( $p_registry, $p_properties = array() ) {
   $this->i_registry = $p_registry;
   $properties = $this->metaObject()->allProperties();
   if (!is_array($p_properties))
-    throw PeopleException::bad_parameters(func_get_args());
+    throw PeopleException::bad_parameters(
+      func_get_args(),
+      People::tr('Not an array')
+    );
   if (isset($p_properties['people_id'])) {
     foreach ( $properties as $props )
       foreach ( $props as $propname => $prop )
@@ -142,7 +145,10 @@ public function __construct( $p_registry, $p_properties = array() ) {
         if (is_null($dbvalue) && !$prop->nullAllowed())
           throw PeopleException::bad_parameters(
             func_get_args(),
-            "Property '$propname' shouldn't be NULL"
+            sprintf(
+              People::tr('Property %s shouldn\'t be NULL.'),
+              $propname
+            )
           );
         $this->i_properties[$propname] = $prop->dbvalue( $dbvalue );
       }
@@ -172,9 +178,9 @@ public function __construct( $p_registry, $p_properties = array() ) {
 final public function __set( $name,  $value ) {
   $property = $this->metaObject()->property($name);
   if ($property->readOnly())
-    throw PeopleException::read_only(get_class($this), $name);
+    throw PeopleException::read_only( get_class($this), $name );
   if ( is_null($value) && !$property->nullAllowed() )
-    throw PeopleException::bad_parameters(func_get_args());
+    throw PeopleException::null_not_allowed( get_class($this), $name );
   $this->set( $name,  $value );
 }
 

@@ -189,7 +189,10 @@ public function add($fieldname, $operator, $values) {
       $this->i_sql_filter .= 1;
       break;
     default:
-      throw PeopleException::bad_parameters(func_get_args());
+      throw PeopleException::bad_parameters(
+        func_get_args(),
+        People::tr('Empty array is not allowed with this operator.')
+      );
     }
   } else {
     $this->i_sql_filter .= "`$fieldname` ";
@@ -207,7 +210,10 @@ public function add($fieldname, $operator, $values) {
       case self::NOTIN:
         break;
       default:
-        throw PeopleException::bad_parameters(func_get_args());
+        throw PeopleException::bad_parameters(
+          func_get_args(),
+          People::tr('Value NULL not allowed for this operator.')
+        );
       }
     }
     $this->i_sql_filter .= self::$si_sql_optable[$operator];
@@ -259,7 +265,10 @@ public function setLimit($count = 0, $offset = 0) {
  */
 public function getIds($registry) {
   if (!($registry instanceof PeopleRegistry))
-    throw PeopleException::bad_parameters(func_get_args());
+    throw PeopleException::bad_parameters(
+      func_get_args(),
+      People::tr('This is not a PeopleRegistry.')
+    );
   if ( !array_key_exists( $this->i_metaclass->classname(), self::$cache ) ) {
     $query = '`PeopleObject`';
     foreach ( array_keys( $this->i_metaclass->allProperties() ) as $classname )

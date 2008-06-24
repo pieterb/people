@@ -15,48 +15,39 @@
 
 /**
  * @package People
- * @subpackage DBValue
+ * @subpackage Exceptions
  * @author Pieter van Beek <pieter@djinnit.com>
  */
 
 /**
- * An integer in the database.
- * The preferred representation of this class in the database is
- * <pre>BIGINT</pre>.
+ * Superclass of all exceptions in the platform.
+ *
+ * Whenever an exception of type E_LOGICAL_ERROR or
+ * E_MYSQL_ERROR is thrown, the message <i>and</i> a backtrace are dumped
+ * to the debugger.
+ *
+ * The other types of exceptions, though "exceptional", do not necessarily
+ * indicate an error, and hence do not result in debugger output.
+ *
+ * For more information about exceptions, see the section about the built-in
+ * Exception class in the PHP manual.
  * @package People
- * @subpackage DBValue
+ * @subpackage Exceptions
  * @author Pieter van Beek <pieter@djinnit.com>
  */
-class PeopleDBInteger extends PeopleDBValue
-{
+class PeopleLogicalError extends PeopleException {
 
 
-protected function validate($value) {
-  if (is_null($value)) return NULL;
-  if (!preg_match('/^\\s*([\\-+]?)\\s*(\\d+)\\s*$/', "$value", $matches))
-    throw PeopleException::bad_parameters(
-      func_get_args(),
-      People::tr('Not a well-formed integer.')
-    );
-  if ($matches[1] == '+') $matches[1] = '';
-  return $matches[1] . $matches[2];
+/**
+ * The constructor.
+ * @param string $message Some human-readable message telling the reason why
+ *               this exception was thrown.
+ */
+public function __construct( $message ) {
+  parent::__construct($message, self::E_LOGICAL_ERROR);
 }
 
 
-public function value() {
-  return ((string)(int)($this->i_value) == $this->i_value) ?
-    (int)($this->i_value) : $this->i_value;
-}
-
-
-public function sql() {
-  return is_null($this->i_value) ? NULL : (string)$this->i_value;
-}
-
-
-public function SQLType() { return 's'; }
-
-
-} // end of Type
+} // class PeopleException
 
 ?>

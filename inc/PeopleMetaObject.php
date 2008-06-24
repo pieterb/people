@@ -60,7 +60,7 @@ protected function __construct() {
   // We make use of that convention here: we just cut of the 'Meta' part
   // to know for which class we are the meta class.
   if ( substr( get_class( $this ), -4) != 'Meta' )
-    throw new PeopleException(
+    throw new PeopleLogicalError(
       sprintf( 'Metaclass %s doesn\'t satisfy naming convention!',
                get_class( $this ) )
     );

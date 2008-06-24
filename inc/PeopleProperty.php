@@ -210,8 +210,11 @@ public function dbvalue($p_value = NULL) {
   case PeopleProperty::TEXT:
     return new PeopleDBText    ($p_value);
   default:
-    throw new PeopleException(
-      sprintf(People::tr("Unknown type %s"), $this->i_type)
+    throw new PeopleLogicalError(
+      sprintf(
+        People::tr('Unknown type %s'),
+        $this->i_type
+      )
     );
   }
 }

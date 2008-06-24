@@ -53,9 +53,8 @@ public function __construct( $registry, $properties = array() ) {
     // TODO And this is how you should check the value of some parameter:
     //if ( array_key_exists( 'some_other_required_property', $properties) &&
     //     $properties['some_other_required_property'] !== 'some value')
-    //  throw new PeopleException(
-    //    'Value X is invalid for property Y!!!',
-    //    PeopleException::E_BAD_PARAMS
+    //  throw PeopleException::bad_parameters(
+    //    func_get_args(), 'Value X is invalid for property Y!!!'
     //  );
   }
 
@@ -85,9 +84,9 @@ protected function set( $name, $value ) {
   // Or protect a property against corruption:
   if ( $name === 'another_property_name' &&
        $value !== 'expected range of values' )
-    throw new PeopleException(
-      tr( 'Some error message' ),
-      PeopleException::E_RUNTIME_ERROR
+    throw PeopleException::bad_parameters(
+      func_get_args(),
+      People::tr( 'Some error message' )
     );
 
   // Probably, the default behaviour is still to call parent::set().

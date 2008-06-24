@@ -138,10 +138,9 @@ public function testBadParameter($class, $in) {
   $fixture = eval("return new $class();");
   try {
     $fixture->set($in);
-  } catch (PeopleException $e) {
-    if ($e->getCode() == PeopleException::E_BAD_PARAMS)
-      return;
-    $this->fail('Exception had funny code!');
+  }
+  catch (PeopleLogicalError $e) {
+    return;
   }
   $this->fail('Expected a PeopleException!');
 }

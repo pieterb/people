@@ -133,9 +133,8 @@ public function assertObject( $object_id, $classname = NULL ) {
   $retval = $this->getObject( $object_id, $classname );
   if ( is_null( $retval ) )
     if ($object_id instanceof PeopleFilter)
-      throw new PeopleException(
-        People::tr( 'No objects in filter.' ),
-        PeopleException::E_NO_SUCH_OBJECT
+      throw new PeopleLogicalError(
+        People::tr( 'No objects in filter.' )
       );
     else
       throw PeopleException::no_such_object($object_id);
@@ -310,9 +309,7 @@ public function prepare($statement) {
     $this->i_stmtcache[$hash][$key] =
       $this->i_mysqli->prepare($statement);
     if (!$this->i_stmtcache[$hash][$key])
-      throw new PeopleException(
-        "Can't prepare MySQL statement:\n{$this->i_mysqli->error}"
-      );
+      throw PeopleException::sql_error( $this->i_mysqli->error );
   }
   return $this->i_stmtcache[$hash][$key];
 }
@@ -331,7 +328,9 @@ public function prepare($statement) {
 public function execute() {
   $args = func_get_args();
   if (count($args) < 1)
-    throw PeopleException::bad_parameters($args);
+    throw PeopleException::bad_parameters(
+      $args, People::tr('No statement provided.')
+    );
   $stmt = array_shift($args);
   if (is_string($stmt))
     $stmt = $this->prepare($stmt);
@@ -362,9 +361,10 @@ public function execute() {
   }
   if ( count($args) &&
        !call_user_func_array(array($stmt, 'bind_param'), $params))
-    throw new PeopleException(
+    throw PeopleException::sql_error(
       sprintf(
-        People::tr('Can\'t bind params: %s'), var_export($params, TRUE)
+        People::tr("Can't bind params: %s\n%s"),
+        var_export($params, TRUE), $stmt->error
       )
     );
   if ( count($lobs) )
@@ -375,36 +375,28 @@ public function execute() {
                  $key,
                  substr( $value, $start, self::MAX_PACKET_SIZE )
                ) )
-          throw new PeopleException(
-            $stmt->error
-          );
+          throw PeopleException::sql_error( $stmt->error );
         $start += self::MAX_PACKET_SIZE;
       }
     }
     if (!$stmt->execute()) {
     if ($stmt->errno == 1062)
-      throw new PeopleException(
-        $stmt->error, PeopleException::E_CONSTRAINT
-      );
+      throw PeopleException::constraint( $stmt->error );
     else
-      throw new PeopleException(
-        $stmt->error
-      );
+      throw PeopleException::sql_error( $stmt->error );
   }
   if (!($metadata = $stmt->result_metadata()))
     return $stmt->affected_rows;
 
   if (!$stmt->store_result())
-    throw new PeopleException(
-      $stmt->error
-    );
+    throw PeopleException::sql_error( $stmt->error );
   $fields = $metadata->fetch_fields();
   $call = 'return mysqli_stmt_bind_result($stmt';
   for ($i = 0; $i < count($fields); $i++)
     $call .= ", \$result[$i]";
   $call .= ');';
   if (!eval($call))
-    throw new PeopleException(
+    throw PeopleException::sql_error(
       sprintf(
         People::tr('Can\'t bind result: %s'),
         $stmt->error
@@ -467,11 +459,11 @@ public function uid() {
  */
 public function begin() {
   if (!$this->i_mysqli->autocommit(FALSE))
-    throw new PeopleException(
+    throw PeopleException::sql_error(
       sprintf(
         People::tr('Setting autocommit failed: %s'),
         $this->i_mysqli->error
-      ), PeopleException::E_RUNTIME_ERROR
+      )
     );
   return $this;
 }
@@ -488,18 +480,15 @@ public function begin() {
  */
 public function commit() {
   if (!$this->i_mysqli->commit())
-    throw new PeopleException(
-      sprintf(
-        People::tr('Commit failed: '),
-        $this->i_mysqli->error
-      ), PeopleException::E_RUNTIME_ERROR
+    throw PeopleException::transaction_failed(
+      $this->i_mysqli->error
     );
   if (!$this->i_mysqli->autocommit(TRUE))
-    throw new PeopleException(
+    throw PeopleException::sql_error(
       sprintf(
         People::tr('Setting autocommit failed: %s'),
         $this->i_mysqli->error
-      ), PeopleException::E_RUNTIME_ERROR
+      )
     );
   return $this;
 }
@@ -516,18 +505,18 @@ public function commit() {
  */
 public function rollback() {
   if (!$this->i_mysqli->rollback())
-    throw new PeopleException(
+    throw PeopleException::sql_error(
       sprintf(
         People::tr('Rollback failed: %s'),
         $this->i_mysqli->error
-      ), PeopleException::E_RUNTIME_ERROR
+      )
     );
   if (!$this->i_mysqli->autocommit(TRUE))
-    throw new PeopleException(
+    throw PeopleException::sql_error(
       sprintf(
         People::tr('Setting autocommit failed: %s'),
         $this->i_mysqli->error
-      ), PeopleException::E_RUNTIME_ERROR
+      )
     );
   return $this;
 }
@@ -543,7 +532,12 @@ public function rollback() {
  */
 public function changed($object_id) {
   if (!isset($this->i_class_by_id[$object_id]))
-    throw PeopleException::bad_parameters(func_get_args());
+    throw new PeopleLogicalError(
+      sprintf(
+        People::tr('Unknown object %s claims to have changed.'),
+        $object_id
+      )
+    );
   $this->i_dirty_flags[$object_id] = $this->i_class_by_id[$object_id];
   return $this;
 } // end of member function setDirty
@@ -556,7 +550,12 @@ public function changed($object_id) {
  */
 public function destroyed($object_id) {
   if (!isset($this->i_class_by_id[$object_id]))
-    throw PeopleException::bad_parameters(func_get_args());
+    throw new PeopleLogicalError(
+      sprintf(
+        People::tr('Unknown object %s claims to be destroyed.'),
+        $object_id
+      )
+    );
   $this->i_destroyed_flags[$object_id] = $this->i_class_by_id[$object_id];
   return $this;
 }
@@ -572,9 +571,11 @@ public function registerObject(PeopleObject $object) {
   $id = $object->id();
   $classname = get_class($object);
   if ( isset( $this->i_class_by_id[$id] ) ) {
-    throw new PeopleException (
-      sprintf( People::tr( '%s %d has been recreated!' ),
-               get_class($object), $id )
+    throw new PeopleLogicalError (
+      sprintf(
+        People::tr( '%s %d has been recreated!' ),
+        get_class($object), $id
+      )
     );
   }
   $this->i_class_by_id[$id] = $classname;

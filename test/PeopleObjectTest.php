@@ -80,7 +80,7 @@ public function testUniqueKey() {
   ));
   try {
     $PEOPLE_REGISTRY->persist();
-    $this->assertTrue(false);
+    $this->fail('An exception was expected to occur.');
   }
   catch (PeopleException $e) {
     $this->assertSame( PeopleException::E_CONSTRAINT, $e->getCode() );
