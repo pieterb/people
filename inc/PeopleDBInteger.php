@@ -34,9 +34,8 @@ class PeopleDBInteger extends PeopleDBValue
 protected function validate($value) {
   if (is_null($value)) return NULL;
   if (!preg_match('/^\\s*([\\-+]?)\\s*(\\d+)\\s*$/', "$value", $matches))
-    throw PeopleException::bad_parameters(
-      func_get_args(),
-      People::tr('Not a well-formed integer.')
+    throw PeopleException::constraint(
+      sprintf( People::tr('Not a well-formed integer: %s'), $value )
     );
   if ($matches[1] == '+') $matches[1] = '';
   return $matches[1] . $matches[2];

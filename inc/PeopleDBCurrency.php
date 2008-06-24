@@ -35,9 +35,11 @@ class PeopleDBCurrency extends PeopleDBValue
 protected function validate($value) {
   if (is_null($value)) return NULL;
   if (is_numeric($value)) return $value;
-  throw PeopleException::bad_parameters(
-    func_get_args(),
-    People::tr('Value must be NULL or numeric.')
+  throw PeopleException::constraint(
+    sprintf(
+      People::tr('Value %s is neither NULL nor numeric.'),
+      $value
+    )
   );
 }
 

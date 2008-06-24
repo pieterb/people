@@ -139,10 +139,10 @@ public function testBadParameter($class, $in) {
   try {
     $fixture->set($in);
   }
-  catch (PeopleLogicalError $e) {
-    return;
+  catch (PeopleRuntimeError $e) {
+    if ($e->getCode() == PeopleException::E_CONSTRAINT) return;
   }
-  $this->fail('Expected a PeopleException!');
+  $this->fail('Expected a PeopleRuntimeError E_CONSTRAINT!');
 }
 
 

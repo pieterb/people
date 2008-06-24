@@ -45,9 +45,8 @@ protected function validate($value) {
     $retval = strtotime("$value");
     if ($oldtz != 'UTC') date_default_timezone_set($oldtz);
     if ($retval === FALSE)
-      throw PeopleException::bad_parameters(
-        func_get_args(),
-        People::tr('Invalid time')
+      throw PeopleException::constraint(
+        sprintf( People::tr('Invalid time: %s'), $value )
       );
     return $retval;
   }

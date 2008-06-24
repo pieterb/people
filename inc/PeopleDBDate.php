@@ -36,17 +36,18 @@ protected function validate($value) {
   if (is_int($value)) return gmdate('Y-m-d', $value);
   if (!is_string($value) ||
       !preg_match('/^(\\d{1,4})\\D(\\d{1,2})\\D(\\d{1,2})$/', $value, $matches))
-    throw PeopleException::bad_parameters(
-      func_get_args(),
-      People::tr('Not a properly formatted date (YYYY-MM-DD)')
+    throw PeopleException::constraint(
+      sprintf(
+        People::tr('Date \'%s\' is not properly formatted (YYYY-MM-DD)'),
+        $value
+      )
     );
   $formatted = sprintf(
     '%04d-%02d-%02d', $matches[1], $matches[2], $matches[3]
   );
   if ($formatted !== gmdate('Y-m-d', strtotime("$formatted 00:00:00 UTC")))
-    throw PeopleException::bad_parameters(
-      func_get_args(),
-      People::tr('Non existing date')
+    throw PeopleException::constraint(
+      sprintf( People::tr('\'%s\' is not an existing date'), $value )
     );
   return $formatted;
 }
