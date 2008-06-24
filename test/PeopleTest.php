@@ -37,6 +37,7 @@ public static function suite() {
   $suite->addTestSuite('PeopleDBDateTimeTest');
   $suite->addTestSuite('PeoplePropertyTest');
   $suite->addTestSuite('LargeValueTest');
+  $suite->addTestSuite('PeopleObjectTest');
   return $suite;
 }
 

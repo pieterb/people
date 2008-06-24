@@ -31,8 +31,9 @@ class LargeValueTest extends PHPUnit_Framework_TestCase
 {
 
 public function testLargeValue() {
-  peopleClearDB();
   global $PEOPLE_REGISTRY;
+  $PEOPLE_REGISTRY->flush();
+  peopleClearDB();
   $address = new TestAddress( $PEOPLE_REGISTRY, array(
       'address' => 'someAddress'
     ));
