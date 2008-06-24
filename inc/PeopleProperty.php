@@ -54,31 +54,25 @@ const TEXT     =  2;
 
 /**
  * Indicates that this property is read-only.
- * If a read-only property is not virtual (i.e. it is stored in the database)
- * this means that the value of the property can only be set when the object
- * is constructed, as a parameter in the constructor.
  */
 const READ_ONLY = 1;
 
 /**
  * Indicates that a property is deprecated.
- * The only effect of this flag is that if a property marked deprecated is accessed,
- * a warning is written to the debugger. This allows a developer to check if a
- * production version of the software might still be using deprecated properties.
+ * The only effect of this flag is that when a property marked deprecated is
+ * accessed, a warning is written to the debugger. This allows a developer
+ * to check if a production version of the software might still be using
+ * deprecated properties.
  */
 const DEPRECATED = 2;
 
 /**
  * Indicates that value NULL is allowed for this property.
- * Please note that this flag doesn't have an effect for ALL property types.
- * E.g., text-type properties can <b>never</b> have NULL as their value.
  */
 const NULL_ALLOWED = 4;
 
 /**
- * Indicates that value NULL is allowed for this property.
- * Please note that this flag doesn't have an effect for ALL property types.
- * E.g., text-type properties can <b>never</b> have NULL as their value.
+ * Indicates a foreign key with cascading deletion properties.
  */
 const CASCADING = 8;
 
@@ -148,27 +142,28 @@ public function cascading() {
 }
 
 
-/**
- * @param int $type_id One of the defined constants of this class.
- * @return string a human readable name for $type_id, in the language of
- *         the current user.
- */
-public function typeName() {
-  switch ($this->i_type) {
-  case self::BOOLEAN  : return People::tr('Boolean');
-  case self::CURRENCY : return People::tr('Currency');
-  case self::DATE     : return People::tr('Date');
-  case self::DATETIME : return People::tr('Date & Time');
-  case self::INTEGER  : return People::tr('Integer');
-  case self::LOB     :  return People::tr('LOB');
-  case self::OBJECT   : return People::tr('Object');
-  case self::TEXT     : return People::tr('Text');
-  default:
-    throw new PeopleException(
-      "Unknown property type {$this->i_type}"
-    );
-  }
-}
+///**
+// * @param int $type_id One of the defined constants of this class.
+// * @return string a human readable name for $type_id, in the language of
+// *         the current user.
+// */
+//public function typeName() {
+//  switch ($this->i_type) {
+//  case self::BOOLEAN  : return People::tr('Boolean');
+//  case self::CURRENCY : return People::tr('Currency');
+//  case self::DATE     : return People::tr('Date');
+//  case self::DATETIME : return People::tr('Date & Time');
+//  case self::INTEGER  : return People::tr('Integer');
+//  case self::LOB     :  return People::tr('LOB');
+//  case self::OBJECT   : return People::tr('Object');
+//  case self::TEXT     : return People::tr('Text');
+//  default:
+//    throw new PeopleException(
+//      "Unknown property type {$this->i_type}"
+//    );
+//  }
+//}
+
 
 /**
  * Constructor.
@@ -176,21 +171,18 @@ public function typeName() {
  *        contains it.
  * @param int $type one of the type constants defined in {@link PeopleDBValue }.
  * @param int $flags any combination (binary OR-ed) of the defined constants of this
- *        class: READ_ONLY, IS_VIRTUAL, DEPRECATED, and NULL_ALLOWED.
+ *        class: CASCADING, DEPRECATED, and NULL_ALLOWED and READ_ONLY. Defaults to
+ *        NULL_ALLOWED.
  * @param mixed $default the default value for this property.
  * @todo review
  */
 public function __construct (
-  $name, $type, $flags, $default = NULL
+  $name, $type, $flags = NULL, $default = NULL
 ) {
+  if (is_null($flags)) $flags = self::NULL_ALLOWED;
   $this->i_name = (string)$name;
   $this->i_type = (int)$type;
-//  if ($flags & self::READ_ONLY)
-//    $flags |= self::NULL_ALLOWED;
   $this->i_flags = $flags;
-//  if ( $this->i_type == self::OBJECT &&
-//       !is_string( $classname ) )
-//    throw PeopleException::bad_parameters(func_get_args());
   $this->i_defaultValue = $default;
 }
 
@@ -213,8 +205,6 @@ public function dbvalue($p_value = NULL) {
     return new PeopleDBDateTime($p_value);
   case PeopleProperty::INTEGER:
     return new PeopleDBInteger ($p_value);
-  case PeopleProperty::LOB:
-    return new PeopleDBLOB     ($p_value);
   case PeopleProperty::OBJECT:
     return new PeopleDBObject  ($p_value);
   case PeopleProperty::TEXT:
