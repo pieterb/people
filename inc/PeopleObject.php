@@ -140,7 +140,10 @@ public function __construct( $p_registry, $p_properties = array() ) {
           $p_properties[$propname] :
           $prop->defaultValue();
         if (is_null($dbvalue) && !$prop->nullAllowed())
-          throw PeopleException::bad_parameters(func_get_args());
+          throw PeopleException::bad_parameters(
+            func_get_args(),
+            "Property '$propname' shouldn't be NULL"
+          );
         $this->i_properties[$propname] = $prop->dbvalue( $dbvalue );
       }
     $p_registry->registerObject($this);
