@@ -39,6 +39,7 @@ class PeopleDBObject extends PeopleDBValue
  */
 protected function validate($value) {
   if (is_null($value)) return NULL;
+  if ($value instanceof PeopleObject) return $value->id();
   if (!preg_match('/^\\s*(\\d+)\\s*$/', "$value", $matches))
     throw PeopleException::bad_parameters(func_get_args());
   return $matches[1];
