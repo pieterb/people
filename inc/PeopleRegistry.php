@@ -37,7 +37,7 @@ class PeopleRegistry
 //                               STATE                                    //
 ////////////////////////////////////////////////////////////////////////////
 
-const MAX_PACKET_SIZE = 1024;
+const MAX_PACKET_SIZE = 4096;
 
 /**
  * Cache of partial SQL statements.
@@ -306,7 +306,7 @@ public function prepare($statement) {
   $hash = mhash(MHASH_TIGER160, $key);
   if (!isset($this->i_stmtcache[$hash][$key])) {
     $statement = preg_replace('/`People/', "`{$this->i_prefix}People", $statement);
-    trigger_error($statement, E_USER_NOTICE);
+    //trigger_error($statement, E_USER_NOTICE);
     $this->i_stmtcache[$hash][$key] =
       $this->i_mysqli->prepare($statement);
     if (!$this->i_stmtcache[$hash][$key])
@@ -360,29 +360,35 @@ public function execute() {
       $params[] = $arg;
     }
   }
-  if ( count($lobs) )
-    foreach ($lobs as $key => $value) {
-      $start = 0;
-      while ($start < strlen($value)) {
-        $stmt->send_long_data( $key, substr($value, $start, self::MAX_PACKET_SIZE) );
-        $start += self::MAX_PACKET_SIZE;
-      }
-    }
   if ( count($args) &&
        !call_user_func_array(array($stmt, 'bind_param'), $params))
     throw new PeopleException(
       sprintf(
         People::tr('Can\'t bind params: %s'), var_export($params, TRUE)
-      ), PeopleException::E_LOGICAL_ERROR
+      )
     );
-  if (!$stmt->execute()) {
+  if ( count($lobs) )
+    foreach ($lobs as $key => $value) {
+      $start = 0;
+      while ($start < strlen($value)) {
+        if ( ! $stmt->send_long_data(
+                 $key,
+                 substr( $value, $start, self::MAX_PACKET_SIZE )
+               ) )
+          throw new PeopleException(
+            $stmt->error
+          );
+        $start += self::MAX_PACKET_SIZE;
+      }
+    }
+    if (!$stmt->execute()) {
     if ($stmt->errno == 1062)
       throw new PeopleException(
         $stmt->error, PeopleException::E_CONSTRAINT
       );
     else
       throw new PeopleException(
-        $stmt->error, PeopleException::E_LOGICAL_ERROR
+        $stmt->error
       );
   }
   if (!($metadata = $stmt->result_metadata()))
@@ -390,7 +396,7 @@ public function execute() {
 
   if (!$stmt->store_result())
     throw new PeopleException(
-      $stmt->error, PeopleException::E_LOGICAL_ERROR
+      $stmt->error
     );
   $fields = $metadata->fetch_fields();
   $call = 'return mysqli_stmt_bind_result($stmt';
@@ -402,7 +408,7 @@ public function execute() {
       sprintf(
         People::tr('Can\'t bind result: %s'),
         $stmt->error
-      ), PeopleException::E_LOGICAL_ERROR
+      )
     );
   $retval = array();
   while ($stmt->fetch()) {
@@ -509,14 +515,14 @@ public function commit() {
  * @see begin(), commit()
  */
 public function rollback() {
-  if (!$this->i_db->rollback())
+  if (!$this->i_mysqli->rollback())
     throw new PeopleException(
       sprintf(
         People::tr('Rollback failed: %s'),
         $this->i_mysqli->error
       ), PeopleException::E_RUNTIME_ERROR
     );
-  if (!$this->i_db->autocommit(TRUE))
+  if (!$this->i_mysqli->autocommit(TRUE))
     throw new PeopleException(
       sprintf(
         People::tr('Setting autocommit failed: %s'),
