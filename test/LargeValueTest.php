@@ -43,12 +43,11 @@ public function testLargeValue() {
   $address = $PEOPLE_REGISTRY->getObject( $address_id );
   $this->assertSame( 'TestAddress', get_class( $address ) );
   $this->assertSame( 'someAddress', $address->address );
-  $address->address = str_repeat('0123456789', 4096);
+  $address->address = str_repeat('0123456789', PeopleRegistry::MAX_PACKET_SIZE);
   $PEOPLE_REGISTRY->persist();
   $PEOPLE_REGISTRY->flush();
   $address = $PEOPLE_REGISTRY->getObject( $address_id );
-  $this->assertSame( str_repeat('0123456789', 4096), $address->address );
-  
+  $this->assertSame( str_repeat('0123456789', PeopleRegistry::MAX_PACKET_SIZE), $address->address );
 }
 
 } // class
