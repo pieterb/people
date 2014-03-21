@@ -1,0 +1,1 @@
+People is an Object-Relational Mapper (ORM) or Object Persistence Layer (OPL) written in PHP. People is lightweight, stable and powerful, supports class hierarchies, object versioning, foreign key constraints and more.
